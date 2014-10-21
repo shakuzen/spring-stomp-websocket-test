@@ -1,4 +1,4 @@
-package org.test.constroller;
+package org.test.controller;
 
 import java.security.Principal;
 

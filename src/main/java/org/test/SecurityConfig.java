@@ -16,15 +16,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-        	.httpBasic()
-        	.and()
-            //Configures url based authorization
-        	.authorizeRequests()
-        		// Anyone can access the urls
-        		.antMatchers("/").permitAll()
-                //The rest of the our application is protected.
-                .antMatchers("/**").authenticated();
+		http
+			.csrf().disable()
+			// Configures url based authorization
+			.authorizeRequests()
+				// Anyone can access the urls
+				.antMatchers("/").permitAll()
+				// The rest of the our application is protected.
+				.antMatchers("/**").authenticated()
+			.and()
+			.httpBasic();
     }
     
     @Override
